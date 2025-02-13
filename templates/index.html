@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Generation Map</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #chart {
+            width: 100%;
+            height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script>
+        var graphs = {{graphJSON | safe}};
+        Plotly.newPlot('chart', graphs.data, graphs.layout);
+    </script>
+</body>
+</html>
