@@ -12,14 +12,15 @@ if 'locked_year' not in st.session_state:
 st.set_page_config(layout="wide", page_title="Solar Generation Map")
 st.title("Solar Generation by State")
 
+years = list(range(2012, 2025))
+
 # Load data
 @st.cache_data
 def load_and_process_data():
-    years = list(range(2012, 2025))
     sheet_names = [f"{year}_Final" if year != 2024 else "2024_Preliminary" for year in years]
     all_years_data = []
     
-    excel_file = pd.ExcelFile("generation_monthly.xlsx")
+    excel_file = pd.ExcelFile("C:\\Users\\lofo6\\Box\\12. Clearloop\\Policy\\07. Analytics\\Intern\\EIAmaps\\generation_monthly.xlsx")
     
     for year, sheet in zip(years, sheet_names):
         df = pd.read_excel(excel_file, sheet_name=sheet, skiprows=4)
